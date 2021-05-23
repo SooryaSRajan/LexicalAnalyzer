@@ -100,7 +100,7 @@ public class LexicalAnalyzer {
                                 }
                             }
                         }
-                        commentsFound += "‣ " + "Comment: " + str + " in line " + lineCount + "\n";
+                        commentsFound += "‣ " + "Comment in line " + lineCount + ": " + str + "\n";
 
                     } else if (isDelimiter(ch)) {
                         delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
