@@ -178,13 +178,13 @@ public class LexicalAnalyzer {
                     if (isKeyword(str)) {
                         keywords += "‣ " + str + " is a Keyword" + " in line " + lineCount + "\n";
                     } else if (validIdentifier(str)) {
-                        literal += "‣ " + str + " is a Valid Variable" + " in line " + lineCount + "\n";
+                        literal += "‣ " + str + " is a Valid Variable Name" + " in line " + lineCount + "\n";
                     } else {
                         try {
                             Integer.parseInt(str);
                             constants += "‣ " + str + " is a Constant Literal" + " in line " + lineCount + "\n";
                         } catch (Exception e) {
-                            errorsFound += "‣ " + str + " is an Invalid Variable" + " in line " + lineCount + "\n";
+                            errorsFound += "‣ " + str + " is an Invalid Variable Name" + " in line " + lineCount + "\n";
                         }
 
                     }
