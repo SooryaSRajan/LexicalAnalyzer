@@ -63,7 +63,7 @@ public class LexicalAnalyzer {
                 "do", "double", "else", "enum", "extern", "float", "for", "goto",
                 "if", "int", "long", "register", "return", "short", "signed",
                 "sizeof", "static", "struct", "switch", "typedef", "union",
-                "unsigned", "void", "volatile", "while", "include"};
+                "unsigned", "void", "volatile", "while", "include", "using", "namespace", "class", "string"};
 
         boolean flag = false;
         for (String key : keywords) {
@@ -84,10 +84,10 @@ public class LexicalAnalyzer {
                 lineCount++;
             }
 
-
             if (!(Character.isDigit(ch) || Character.isAlphabetic(ch))) {
                 beginningChar = ch;
                 if (ch == '/') {
+                    if(j + 1 < codeArray.length)
                     if (codeArray[j + 1] == '*' || codeArray[j + 1] == '/') {
                         String str = "";
                         for (int x = j + 2; j < codeArray.length; j++, x++) {
@@ -106,17 +106,27 @@ public class LexicalAnalyzer {
                         delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
                     }
                 } else if (ch == '>') {
-                    if (codeArray[j + 1] == '>') {
-                        operators += "‣ " + ">> is an Istream Operator Symbol" + " in line " + lineCount + "\n";
-                        j++;
-                    } else {
+                    if(j + 1 < codeArray.length) {
+                        if (codeArray[j + 1] == '>') {
+                            operators += "‣ " + ">> is an Istream Operator Symbol" + " in line " + lineCount + "\n";
+                            j++;
+                        } else {
+                            delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
+                        }
+                    }
+                    else{
                         delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
                     }
                 } else if (ch == '<') {
-                    if (codeArray[j + 1] == '<') {
-                        operators += "‣ " + "<< is an Ostream Operator Symbol" + " in line " + lineCount + "\n";
-                        j++;
-                    } else {
+                    if(j + 1 < codeArray.length) {
+                        if (codeArray[j + 1] == '<') {
+                            operators += "‣ " + "<< is an Ostream Operator Symbol" + " in line " + lineCount + "\n";
+                            j++;
+                        } else {
+                            delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
+                        }
+                    }
+                    else{
                         delimitingSymbols += "‣ " + "\"" + ch + "\"" + " is a Delimiting Symbol" + " in line " + lineCount + "\n";
                     }
                 } else if (isDelimiter(ch)) {
@@ -131,13 +141,28 @@ public class LexicalAnalyzer {
                 for (int x = j; j < codeArray.length; j++, x++) {
                     ch = codeArray[x];
                     if (ch == '"') {
+                        j--;
                         break;
                     } else {
                         str += ch;
                     }
                 }
                 stringFound += "‣ " + str + " is string or pre-processor directive in line " + lineCount + "\n";
-            } else {
+            }
+            else if(beginningChar == '<') {
+                String str = "";
+                for (int x = j; j < codeArray.length; j++, x++) {
+                    ch = codeArray[x];
+                    if (ch == '>') {
+                        j--;
+                        break;
+                    } else {
+                        str += ch;
+                    }
+                }
+                stringFound += "‣ " + str + " is a pre-processor directive in line " + lineCount + "\n";
+            }
+            else {
 
                 String str = "";
                 for (int x = j; j < codeArray.length; j++, x++) {
