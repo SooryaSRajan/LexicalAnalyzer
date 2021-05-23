@@ -203,18 +203,26 @@ public class LexicalAnalyzer {
             }
             if (current == '{' || current == '(' || current == '[') {
                 stack.push(current);
+                bracketsBalanced += "‣ " + current + " bracket Ends at line " + position + "\n";
             }
             if (current == '}' || current == ')' || current == ']') {
-                if (stack.isEmpty())
-                    bracketsBalanced += "‣ " + "Not Balanced at line " + position + "\n";
+                if (stack.isEmpty()) {
+                    bracketsBalanced += "‣ " + current + " not Balanced at line " + position + "\n";
+                    errorsFound += "‣ " + current + " not Balanced at line " + position + "\n";
+                }
+                else{
                 char last = stack.peek();
-                if (current == '}' && last == '{' || current == ')' && last == '(' || current == ']' && last == '[')
+                if (current == '}' && last == '{' || current == ')' && last == '(' || current == ']' && last == '[') {
                     stack.pop();
-                else
-                    bracketsBalanced += "‣ " + "Not Balanced at line " + position + "\n";
+                    bracketsBalanced += "‣ " + current + " bracket Ends at line " + position + "\n";
+                } else {
+                    bracketsBalanced += "‣ " + current + " not Balanced at line " + position + "\n";
+                    errorsFound += "‣ " + current + " not Balanced at line " + position + "\n";
+                }
+                }
             }
         }
-        bracketsBalanced += stack.isEmpty() ? "\n" : "‣ " + "Not Balanced at line " + position + "\n";
+        bracketsBalanced += stack.isEmpty() ? "‣ All Brackets balanced \n" : "‣ " + stack.pop() + " bracket not Balanced at line " + position + "\n";
     }
 
     void setData() {
