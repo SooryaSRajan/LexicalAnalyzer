@@ -17,24 +17,24 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        if(FlagClass.isFlashEnabled()){
+        if (FlagClass.isFlashEnabled()) {
             Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
+        } else {
+            final Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    FlagClass.setFlashEnabled(true);
+                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }, 1500);
         }
-
-        final Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                FlagClass.setFlashEnabled(true);
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
-        }, 1500);
 
 
     }
