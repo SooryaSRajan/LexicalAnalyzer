@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,8 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast toast = Toast.makeText(MainActivity.this, "Generating Report", Toast.LENGTH_SHORT);
+
+                View toastView = toast.getView();
+                toastView.getBackground().setColorFilter(getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+                TextView text = toastView.findViewById(android.R.id.message);
+                text.setTextColor(getColor(R.color.colorWhite));
+
+                toast.show();
+
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra("CODE", codeTextBox.getText().toString());
                 startActivity(intent);

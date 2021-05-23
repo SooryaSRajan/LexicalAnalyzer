@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:textFontWeight="10"
             android:textSize="14sp"
-            android:text="Designed by Soorya S, Shwetha S, Swetha J, Nithuna N"
+            android:text="Analyze and generate report for C/C++ codes, by using first stage lexical analysis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="HardcodedText" />
