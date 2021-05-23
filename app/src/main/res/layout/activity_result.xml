@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ResultActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:paddingTop="30dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="50dp"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:textSize="32sp"
+            android:text="Result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_weight="1"
+            android:textFontWeight="10"
+            android:textSize="14sp"
+            android:text="Results from Lexical Analysis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/operation_title"
+            android:text="Operations: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/operations_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/operation_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/delimiter_title"
+            android:text="Delimiters: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/operations_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/delimiter_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/delimiter_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/keywords_title"
+            android:text="Key Words: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/delimiter_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/keywords_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/keywords_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/literals_title"
+            android:text="Literals: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/keywords_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/literals_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/literals_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/constants_title"
+            android:text="Constants: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/literals_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/constants_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/constants_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/comment_title"
+            android:text="Comments: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/constants_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/comment_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/comment_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/string_title"
+            android:text="Strings: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/comment_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/string_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/string_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/bracket_title"
+            android:text="Brackets: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/string_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/bracket_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/bracket_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/errors_title"
+            android:text="Erros: "
+            android:textColor="@color/colorGreytext"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/bracket_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/colorRed"
+            android:id="@+id/errors_box"
+            android:padding="10dp"
+            android:background="@drawable/box"
+            android:textColor="@color/colorGreytext"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/errors_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>
