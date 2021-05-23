@@ -63,7 +63,7 @@ public class LexicalAnalyzer {
                 "do", "double", "else", "enum", "extern", "float", "for", "goto",
                 "if", "int", "long", "register", "return", "short", "signed",
                 "sizeof", "static", "struct", "switch", "typedef", "union",
-                "unsigned", "void", "volatile", "while", "include", "using", "namespace", "class", "string"};
+                "unsigned", "void", "volatile", "while", "include", "using", "namespace", "class"};
 
         boolean flag = false;
         for (String key : keywords) {
@@ -202,13 +202,13 @@ public class LexicalAnalyzer {
                     if (isKeyword(str)) {
                         keywords += "‣ " + str + " is a Keyword" + " in line " + lineCount + "\n";
                     } else if (validIdentifier(str)) {
-                        literal += "‣ " + str + " is a Valid Variable Name" + " in line " + lineCount + "\n";
+                        literal += "‣ " + str + " is a Valid Identifier" + " in line " + lineCount + "\n";
                     } else {
                         try {
                             Integer.parseInt(str);
-                            constants += "‣ " + str + " is a Constant Literal" + " in line " + lineCount + "\n";
+                            constants += "‣ " + str + " is a Constant " + " in line " + lineCount + "\n";
                         } catch (Exception e) {
-                            errorsFound += "‣ " + str + " is an Invalid Variable Name" + " in line " + lineCount + "\n";
+                            errorsFound += "‣ " + str + " is an Invalid Identifier" + " in line " + lineCount + "\n";
                         }
 
                     }

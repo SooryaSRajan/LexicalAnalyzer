@@ -140,7 +140,7 @@
 
         <TextView
             android:id="@+id/literals_title"
-            android:text="Literals: "
+            android:text="Identifier: "
             android:textColor="@color/colorGreytext"
             android:textSize="30sp"
             android:layout_marginTop="40dp"
