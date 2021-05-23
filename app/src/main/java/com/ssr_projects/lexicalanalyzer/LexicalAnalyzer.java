@@ -147,20 +147,44 @@ public class LexicalAnalyzer {
                         str += ch;
                     }
                 }
-                stringFound += "‣ " + str + " is string or pre-processor directive in line " + lineCount + "\n";
+                stringFound += "‣ " + str + " is string / pre-processor directive in line " + lineCount + "\n";
             }
-            else if(beginningChar == '<') {
+            else if (beginningChar == '\'') {
                 String str = "";
                 for (int x = j; j < codeArray.length; j++, x++) {
                     ch = codeArray[x];
-                    if (ch == '>') {
+                    if (ch == '\'') {
                         j--;
                         break;
                     } else {
                         str += ch;
                     }
                 }
-                stringFound += "‣ " + str + " is a pre-processor directive in line " + lineCount + "\n";
+                stringFound += "‣ " + str + " is a character in line " + lineCount + "\n";
+            }
+
+            else if(beginningChar == '<') {
+                String str = "";
+                int temp = j, flag = 0;
+                for (int x = j; j < codeArray.length; j++, x++) {
+                    ch = codeArray[x];
+                    if (ch == '>') {
+                        j--;
+                        flag++;
+                        break;
+                    } else {
+                        str += ch;
+                    }
+                }
+                if(flag == 0){
+                    beginningChar = '$';
+                    j = temp;
+                    j--;
+                    Log.e("TAG", "AnalyzeCode: " + j  + str);
+                }
+                else{
+                    stringFound += "‣ " + str + " is a pre-processor directive / template type in line " + lineCount + "\n";
+                }
             }
             else {
 
